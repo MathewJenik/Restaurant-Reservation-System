@@ -1,0 +1,52 @@
+﻿@model T2RMSWS.Data.Reservation
+
+@{
+    ViewData["Title"] = "Guests";
+}
+
+<h1>Guests</h1>
+
+<h4>Reservation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Guests">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="StartDateTime" class="control-label">Date</label>
+                <input type="date" asp-for="StartDateTime" class="form-control" min="@(DateTime.Now.Date.ToString("yyyy-MM-dd"))"/>
+                <span asp-validation-for="StartDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Guests" class="control-label"></label>
+                <input asp-for="Guests" class="form-control" />
+                <span asp-validation-for="Guests" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="EndDateTime" class="control-label">Duration</label>
+                <select asp-for="EndDateTime" class="form-control">
+                    <option value="1/1/2020 0:30:00 AM">30 Mins.</option>
+                    <option value="1/1/2020 1:00:00 AM">1 Hour.</option>
+                    <option value="1/1/2020 1:30:00 AM">1 Hour 30 Mins.</option>
+                    <option value="1/1/2020 2:00:00 AM">2 Hours.</option>
+                    <option value="1/1/2020 2:30:00 AM">2 Hours 30 Mins.</option>
+                    <option value="1/1/2020 3:00:00 AM">3 Hours.</option>
+                </select>
+                <span asp-validation-for="EndDateTime" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Next" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

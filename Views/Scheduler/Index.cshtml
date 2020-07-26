@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Scheduler";
+}
+
+<div class="container" id="controls">
+
+    <div class="row" id='calendar'></div>
+</div>
+
+
+@section Styles{
+
+    <link href="~/css/fullcalendar-scheduler/core.css" rel="stylesheet" />
+    <link href="~/css/fullcalendar-scheduler/daygrid.css" rel="stylesheet" />
+    <link href="~/css/fullcalendar-scheduler/timegrid.css" rel="stylesheet" />
+    <link href="~/css/fullcalendar-scheduler/premium-timeline.css" rel="stylesheet" />
+    <link href="~/css/fullcalendar-scheduler/resource-timeline.css" rel="stylesheet" />
+
+    <style>
+        #controls {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+
+        #calendar {
+            max-width: 90vw;
+            margin: 50px auto;
+        }
+
+        #tooltip {
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+        }
+    </style>
+}
+@section Scripts {
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.18.1/moment.js"></script>
+    <script src="~/js/fullcalendar-scheduler/moment.js"></script>
+    <script src="~/js/fullcalendar-scheduler/core.js"></script>
+    <script src="~/js/fullcalendar-scheduler/interaction.js"></script>
+    <script src="~/js/fullcalendar-scheduler/daygrid.js"></script>
+    <script src="~/js/fullcalendar-scheduler/timegrid.js"></script>
+    <script src="~/js/fullcalendar-scheduler/premium-timeline.js"></script>
+    <script src="~/js/fullcalendar-scheduler/resource-common.js"></script>
+    <script src="~/js/fullcalendar-scheduler/resource-timeline.js"></script>
+    <script src="~/js/fullcalendar-scheduler/ReservationCalender.js"></script>
+
+}
+
+
+

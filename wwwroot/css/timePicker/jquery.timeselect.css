@@ -1,0 +1,71 @@
+.clr {
+    clear: both;
+}
+
+.timeselect {
+    display: inline-block;
+}
+
+input[type=text] {
+    padding: 3px 5px;
+}
+
+ul.dateSelector {
+    border: 1px solid #c6c6c6;
+    background-color: #f6f6f6;
+    margin: 0;
+    padding: 0;
+    width: 270px
+}
+
+ul.dateSelector li {
+    cursor: pointer;
+    width: 70px;
+    float: left;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    padding: 10px;
+    text-align: center;
+}
+
+ul.dateSelector li.separator {
+    clear: both;
+    width: 100%;
+    padding: 10px 0;
+    margin: 0;
+    text-align: center;
+    font-weight: bold;
+}
+
+ul.dateSelector li.separator:hover {
+    background-color: transparent;
+}
+
+ul.dateSelector li:hover {
+    background-color: #c6c6c6;
+
+}
+
+
+
+div.radioTimes input[type="radio"] {
+    opacity: 0.01;
+    z-index: 100;
+}
+div.radioTimes input[type="radio"]:checked + label,
+.Checked + label {
+    background: green;
+}
+
+div.radioTimes label {
+    padding: 5px;
+    border: 1px solid #CCC;
+    cursor: pointer;
+    z-index: 90;
+}
+
+div.radioTimes label:hover {
+    background: #DDD;
+
+}

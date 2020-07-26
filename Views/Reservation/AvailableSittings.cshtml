@@ -1,0 +1,233 @@
+﻿@model T2RMSWS.Models.SittingListTSDataModel
+<!--model IEnumerable<T2RMSWS.Data.Sitting>-->
+<link rel="stylesheet" href="~/css/timePicker/jquery.timeselect.css">
+
+@{
+    ViewData["Title"] = "AvailableSittings";
+}
+
+
+
+
+<h1>AvailableSittings</h1>
+
+<p>
+    <a asp-action="Guests">Go Back</a>
+</p>
+
+@if (Model.SittingList.Count() == 0)
+{
+    <p>NO SITTINGS AVAILABLE FOR THIS DATE.</p>
+
+}
+else
+{
+    <!-- Hidden Field for the number of guests-->
+    <!--Html.HiddenFor(m => m.reservation.Guests, new { id = "guests" })-->
+    <!----<input asp-for="reservation.Guests" class="form-control" />-->
+    <!--<input asp-for="StartDateTime" class="form-control" />-->
+
+
+
+
+
+    <!--<div id="example"></div>-->
+
+    /*
+    <form asp-action="AvailableSittings">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+        <div id="example" class="form-group">
+
+        </div>
+
+        <div class="form-group">
+            <input type="submit" value="Next" class="btn btn-primary" />
+        </div>
+    </form>
+    */
+    <form asp-action="AvailableSittings">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+
+        <div class="form-group">
+            <!--This is where the time selected data is stored, in the integer format used throughout reservations.-->
+            <input type="hidden" name="StartTimeSlot" asp-for="StartTimeSlot" class="form-control" value="@Model.StartTimeSlot" />
+
+            
+            <span asp-validation-for="@Model.StartTimeSlot" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <!--<input type="hidden" asp-for="reservation.EndDateTime" class="form-control" value="@Model.Reservation.EndDateTime" />-->
+            <!--<input asp-for="endDateTime" class="form-control" value="@Model.EndDateTime" />-->
+            <!--<span asp-validation-for="endDateTime" class="text-danger"></span>-->
+            <!--<select type="hidden" asp-for="reservation.EndDateTime" class="form-control" value="@Model.Reservation.EndDateTime">
+                <option value="1/1/2020 0:30:00 AM">30 Mins.</option>
+                <option value="1/1/2020 1:00:00 AM">1 Hour.</option>
+                <option value="1/1/2020 1:30:00 AM">1 Hour 30 Mins.</option>
+                <option value="1/1/2020 2:00:00 AM">2 Hours.</option>
+                <option value="1/1/2020 2:30:00 AM">2 Hours 30 Mins.</option>
+                <option value="1/1/2020 3:00:00 AM">3 Hours.</option>
+            </select>
+            -->
+
+            <input type="hidden" asp-for="EndDateTime" class="form-control" value="@Model.EndDateTime">
+
+            </input>
+            <span asp-validation-for="EndDateTime" class="text-danger"></span>
+
+        </div>
+
+        <div class="form-group">
+            <input type="hidden" asp-for="StartDateTime" class="form-control" value="@Model.StartDateTime" />
+            <span asp-validation-for="StartDateTime" class="text-danger"></span>
+
+        </div>
+
+        <div class="form-group">
+            <input type="hidden" asp-for="Guests" class="form-control" value="@Model.Reservation.Guests" />
+            <span asp-validation-for="Guests" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label>Preffered Area (if available)</label>
+            <select id="areaDisplay" asp-for="AreaPicked" class="form-control">
+                @for (int i = 0; i < Model.AreasList.Count(); i++)
+                {
+                    <option value="@Model.AreasList.ToArray().ElementAt(i).Description">@Model.AreasList.ToArray().ElementAt(i).Description</option>
+                }
+
+            </select>
+        </div>
+
+        <!--place the new sitting selection here:-->
+
+        <div class="form-group">
+
+
+            @for (int i = 0; i < Model.SittingList.Count(); i++)
+            {
+                <div class="accordion" id="accordionExample">
+                    <!--foreach (var ts in Model.timeSlotList)-->
+
+
+                    <div class="card">
+                        <div class="card-header" id="heading@(Model.SittingList.ElementAt(i).Id)" data-toggle="collapse" data-target="#collapse@(Model.SittingList.ElementAt(i).Id)" aria-expanded="false" aria-controls="collapse@(Model.SittingList.ElementAt(i).Id)">
+                            <h5 class="mb-0">
+                                <button class="btn btn-link" type="button">
+                                    @Model.SittingList.ElementAt(i).SittingType.Description
+
+                                </button>
+                            </h5>
+                        </div>
+                        <div id="collapse@(Model.SittingList.ElementAt(i).Id)" class="collapse show" aria-labelledby="headingOne" data-parent="">
+                            <div class="card-body row justify-content-around">
+
+                                @if (Model.StaffNeededForSittingList.ElementAt(i) == false) {
+
+                                
+                                int j = 0;
+                                <div class="radioTimes">
+                                    @foreach (var t in Model.TimeSlotList.ElementAt(i))
+                                    {
+
+
+
+                                        if (t[3] == 0)
+                                        {
+                                        <!--Html.CheckBoxFor(m => m.Tables[j].Selected, new { atclass = "Area" + a.Description })-->
+                                        <!--ATHtml.RadioButtonFor(m => m.timeSlotList.ElementAt(i)[j][0], new { ATclass = Model.sittingList.ElementAt(i).Id, ATname = Model.sittingList.ElementAt(i).Id })-->
+                                        <!--input type="radio" id="s+ATModel.sittingList.ElementAt(i).Id+ATModel.timeSlotList.ElementAt(i)[j][0]" name="ATModel.sittingList.ElementAt(i).Id" class="ATModel.sittingList.ElementAt(i).Id" value="ATModel.timeSlotList.ElementAt(i)[j][0]" onclick="setTimeValue(ATModel.timeSlotList.ElementAt(i)[j][0])" /> -->
+                                        <input type="radio" id="s+@Model.SittingList.ElementAt(i).Id+@Model.TimeSlotList.ElementAt(i)[j][0]" name="timeSlotPicker" class="@Model.SittingList.ElementAt(i).Id" value="@Model.TimeSlotList.ElementAt(i)[j][0]" onclick="setTimeValue(@Model.TimeSlotList.ElementAt(i)[j][0])" />
+                                        <!--<label for="s+@Model.SittingList.ElementAt(i).Id+ATModel.timeSlotList.ElementAt(i)[j][0]">ATModel.timeSlotList.ElementAt(i)[j][0]</label>-->
+                                            var hour = Model.TimeSlotList.ElementAt(i)[j][0] / 100;
+                                            var min = Model.TimeSlotList.ElementAt(i)[j][0] - (hour * 100);
+                                            min = min / 10;
+                                            if (Model.TimeSlotList.ElementAt(i)[j][0] >= 1300)
+                                            {
+
+                                            <label for="s+@Model.SittingList.ElementAt(i).Id+@Model.TimeSlotList.ElementAt(i)[j][0]">@(hour - 12) : @(min)0 PM</label>
+
+                                            }
+                                            else
+                                            {
+                                            <label for="s+@Model.SittingList.ElementAt(i).Id+@Model.TimeSlotList.ElementAt(i)[j][0]">@(hour) : @(min)0 AM</label>
+
+                                            }
+                                        }
+                                        j++;
+
+                                    }
+                                </div>
+                                } else {
+                                    
+                                    <p>Please contact the restuarnt or staff to make a booking for this sitting.</p>
+                                    }
+
+
+                                @* Choose all tables within area *@
+                                <script>
+                                            $('.DateTime').val(new Date().toISOString().slice(0, 10));
+
+                                            document.getElementById('checkAll_@(Model.SittingList.ElementAt(i).Id)').switchButton();
+
+                                            $('#checkAll_@(Model.SittingList.ElementAt(i).Id)').change(function () {
+                                                $('input[class*=@(Model.SittingList.ElementAt(i).SittingType.Id)][type=radio]').prop('unchecked', this.unchecked);
+                                            });
+
+                                            $("[class*=@(Model.SittingList.ElementAt(i).SittingType.Id)]").change(function () {
+                                                if ($('input[class*=@(Model.SittingList.ElementAt(i).SittingType.Id)][type=radio]:checked').length == $('input[class*=@(Model.SittingList.ElementAt(i).SittingType.Id)][type=radio]').length) {
+                                                    @*$('#checkAll_@(a.AreaId)').prop('checked', true);*@
+                                                    document.getElementById('checkAll_@(Model.SittingList.ElementAt(i).Id)').switchButton('on', true);
+                                                } else {
+                                                    @*$('#checkAll_@(a.AreaId)').prop('checked', false);*@
+                                                    document.getElementById('checkAll_@(Model.SittingList.ElementAt(i).Id)').switchButton('off', true);
+                                                }
+                                            });
+
+                                </script>
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            }
+
+        </div>
+
+
+        <!--reference here-->
+
+
+        <div class="form-group">
+            <input type="submit" value="Next" class="btn btn-primary" />
+        </div>
+    </form>
+
+
+
+
+}
+
+
+@section Scripts {
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous">
+    </script>
+
+
+
+    <script>
+        
+        //
+        function setTimeValue(time) {
+            $('input[name=Timeselect]').val(time);
+            $('input[name=StartTimeSlot]').val(time);
+        }
+
+    </script>
+}

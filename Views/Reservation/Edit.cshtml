@@ -1,0 +1,198 @@
+﻿<!--model T2RMSWS.Data.Reservation-->
+@model T2RMSWS.Models.ReservationsManagement.ResStatusModel;
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+@section Styles {
+    <link href="~/css/sittings/sittings.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/css/bootstrap-switch-button.min.css" rel="stylesheet">
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/sittings/bootstrap-switch-button.js"></script>
+}
+
+<h1>Edit</h1>
+
+<h4>Reservation</h4>
+<hr />
+<div class="row">
+    <div class="col-md-12">
+        <form asp-action="Edit">
+            <div class="row">
+                <div class="col-md-4">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="reservation.Id" />
+                    <div class="form-group">
+                        <input type="hidden" asp-for="reservation.Customer.Email" class="form-control"/>
+                        <span asp-validation-for="reservation.Customer.Email" class="text-danger"></span>
+
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="reservation.Customer.FirstName" class="control-label"></label>
+                        <input asp-for="reservation.Customer.FirstName" class="form-control" />
+                        <span asp-validation-for="reservation.Customer.FirstName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="reservation.Customer.LastName" class="control-label"></label>
+                        <input asp-for="reservation.Customer.LastName" class="form-control" />
+                        <span asp-validation-for="reservation.Customer.LastName" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="reservation.StartDateTime" class="control-label"></label>
+                        <input asp-for="reservation.StartDateTime" class="form-control" />
+                        <span asp-validation-for="reservation.StartDateTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="reservation.EndDateTime" class="control-label"></label>
+                        <input asp-for="reservation.EndDateTime" class="form-control" />
+                        <span asp-validation-for="reservation.EndDateTime" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="reservation.Guests" class="control-label"></label>
+                        <input asp-for="reservation.Guests" class="form-control" />
+                        <span asp-validation-for="reservation.Guests" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="reservation.Notes_Requirements" class="control-label"></label>
+                        <input asp-for="reservation.Notes_Requirements" class="form-control" />
+                        <span asp-validation-for="reservation.Notes_Requirements" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label">Reservation Status</label>
+                        <!--<input asp-for="ReservationStatus" class="form-control" />-->
+                        <select asp-for="@Model.reservation.ReservationStatusId" class="form-control">
+                            @for (int i = 0; i < Model.reservationStatusList.Count(); i++)
+                            {
+                                <option value="@Model.reservationStatusList.ToArray().ElementAt(i).Id">@Model.reservationStatusList.ToArray().ElementAt(i).Desc</option>
+                            }
+
+                        </select>
+
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="hidden" asp-for="reservation.Customer.Id" class="form-control" />
+                        <span asp-validation-for="reservation.Customer.Id" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+
+                        <input type="hidden" asp-for="reservation.ReservationTypeId" class="form-control" />
+                        <span asp-validation-for="reservation.ReservationTypeId" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    @* Table Areas  *@
+                    <div class="accordion" id="accordionExample">
+                        @foreach (var a in Model.Areas)
+                        {
+                            int k = 0;
+                            @Html.HiddenFor(m => m.Areas[k].Description);
+                            @Html.HiddenFor(m => m.Areas[k].AreaId);
+                            k++;
+
+                            var areaNeeded = false;
+                            for (int z = 0; z < Model.Tables.Count; z++)
+                            {
+
+                                if (Model.Tables.ElementAt(z).AreaId == a.AreaId)
+                                {
+                                    areaNeeded = true;
+                                    z = Model.Tables.Count() + 1;
+                                }
+                            }
+
+                            if (areaNeeded == true)
+                            {
+                                <div class="card">
+                                    <div class="card-header" id="heading@(a.AreaId)" data-toggle="collapse" data-target="#collapse@(a.AreaId)" aria-expanded="false" aria-controls="collapse@(a.AreaId)">
+                                        <h5 class="mb-0">
+                                            <button class="btn btn-link" type="button">
+                                                @a.Description
+                                            </button>
+                                        </h5>
+                                    </div>
+                                    <div id="collapse@(a.AreaId)" class="collapse show" aria-labelledby="headingOne" data-parent="">
+                                        <div class="card-body row justify-content-around">
+
+                                            @{int j = 0;}
+
+                                            @foreach (var t in Model.Tables)
+                                            {
+                                                if (t.AreaId == a.AreaId)
+                                                {
+                                                    <div class="seat mt-2">
+                                                        @Html.HiddenFor(m => m.Tables[j].Description)
+                                                        @Html.HiddenFor(m => m.Tables[j].TableNo)
+                                                        @Html.HiddenFor(m => m.Tables[j].TableId)
+
+                                                        @* Class property is created in order to use it within script below
+                                                            (in order to choose all tables within area) *@
+
+                                                        @Html.CheckBoxFor(m => m.Tables[j].Selected, new { @class = "Area" + a.Description })
+                                                        <label for="Tables_@(j)__Selected">@t.TableNo <br /> Capacity: @t.Capacity</label>
+                                                    </div>
+                                                }
+                                                j++;
+                                            }
+                                            <!--
+                                            @* Check all tables in area *@
+                                            <div class="form-group">
+                                                Include This Area <input type="checkbox" name="checkAll_@(a.AreaId)" id="checkAll_@(a.AreaId)" class="btn btn-primary" checked />
+                                            </div>
+                                                -->
+                                            @* Choose all tables within area *@
+                                            <script>
+                                            $('.DateTime').val(new Date().toISOString().slice(0, 10));
+
+                                            document.getElementById('checkAll_@(a.AreaId)').switchButton();
+
+                                            $('#checkAll_@(a.AreaId)').change(function () {
+                                                $('input[class*=@(a.Description)][type=checkbox]').prop('unchecked', this.unchecked);
+                                            });
+
+                                            $("[class*=@(a.Description)]").change(function () {
+                                                if ($('input[class*=@(a.Description)][type=checkbox]:checked').length == $('input[class*=@(a.Description)][type=checkbox]').length) {
+                                                    @*$('#checkAll_@(a.AreaId)').prop('checked', true);*@
+                                                    document.getElementById('checkAll_@(a.AreaId)').switchButton('on', true);
+                                                } else {
+                                                    @*$('#checkAll_@(a.AreaId)').prop('checked', false);*@
+                                                    document.getElementById('checkAll_@(a.AreaId)').switchButton('off', true);
+                                                }
+                                            });
+
+                                            </script>
+
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                        }
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap-switch-button@1.1.0/dist/bootstrap-switch-button.min.js"></script>
+    <script src="~/js/sittings/checkAll.js"></script>
+
+
+}

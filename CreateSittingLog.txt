@@ -1,0 +1,67 @@
+    7/06/2020 2:00:35 PM -- Debugging in Create Sittings Form to display tables and area
+    Fail: 7/06/2020 2:00:35 PM -- Table Count is less than 40 
+    7/06/2020 2:06:37 PM -- There are 30 Tables
+    Fail: 7/06/2020 2:07:47 PM -- There are less than 4 Areas in the resturant 
+    7/06/2020 2:08:06 PM -- There are 3 Areas
+    8/06/2020 12:12:18 AM -- Debugging in Create Sittings Form to display tables and area
+    Fail: 8/06/2020 12:12:18 AM -- Table Count is less than 40 
+    8/06/2020 12:12:23 AM -- There are 30 Tables
+    Fail: 8/06/2020 12:12:23 AM -- There are less than 4 Areas in the resturant 
+    8/06/2020 12:12:24 AM -- There are 3 Areas
+    8/06/2020 6:02:10 PM -- Debugging in Create Sittings Form to display tables and area
+    8/06/2020 6:02:11 PM -- There are 30 Tables
+    8/06/2020 6:02:11 PM -- There are 3 Areas
+        8/06/2020 6:02:42 PM -- Debugging in Create Sittings Form to display tables and area
+        8/06/2020 6:02:42 PM -- There are 30 Tables
+        8/06/2020 6:02:42 PM -- There are 3 Areas
+    9/06/2020 11:44:49 AM -- Debugging in Create Sittings Form to display tables and area
+    9/06/2020 11:44:50 AM -- There are 30 Tables
+    9/06/2020 11:44:51 AM -- There are 3 Areas
+    9/06/2020 11:45:44 AM -- Debugging in Create Sittings Form to display tables and area
+    9/06/2020 11:45:44 AM -- There are 30 Tables
+    9/06/2020 11:45:45 AM -- There are 3 Areas
+    9/06/2020 11:46:28 AM -- Debugging in Create Sittings Form to display tables and area
+    9/06/2020 11:46:28 AM -- There are 30 Tables
+    9/06/2020 11:46:29 AM -- There are 3 Areas
+    10/06/2020 6:29:17 PM -- Debugging in Create Sittings Form to display tables and area
+    10/06/2020 6:29:17 PM -- There are 30 Tables
+    10/06/2020 6:29:17 PM -- There are 3 Areas
+    10/06/2020 6:40:14 PM -- Debugging in Create Sittings Form to display tables and area
+    10/06/2020 6:40:14 PM -- There are 30 Tables
+    10/06/2020 6:40:14 PM -- There are 3 Areas
+    10/06/2020 6:42:00 PM -- Debugging in Create Sittings Form to display tables and area
+    10/06/2020 6:42:01 PM -- There are 30 Tables
+    10/06/2020 6:42:01 PM -- There are 3 Areas
+    10/06/2020 6:45:02 PM -- Debugging in Create Sittings Form to display tables and area
+    10/06/2020 6:45:02 PM -- There are 30 Tables
+    10/06/2020 6:45:02 PM -- There are 3 Areas
+    10/06/2020 6:48:11 PM -- Debugging in Create Sittings Form to display tables and area
+    10/06/2020 6:48:11 PM -- There are 30 Tables
+    10/06/2020 6:48:11 PM -- There are 3 Areas
+    10/06/2020 6:56:18 PM -- Debugging in Create Sittings Form to display tables and area
+    10/06/2020 6:56:19 PM -- There are 30 Tables
+    10/06/2020 6:56:19 PM -- There are 3 Areas
+    10/06/2020 7:01:21 PM -- Debugging in Create Sittings Form to display tables and area
+    10/06/2020 7:01:21 PM -- There are 30 Tables
+    10/06/2020 7:01:22 PM -- There are 3 Areas
+    10/06/2020 7:09:57 PM -- Debugging in Create Sittings Form to display tables and area
+    10/06/2020 7:09:58 PM -- There are 30 Tables
+    10/06/2020 7:09:58 PM -- There are 3 Areas
+    10/06/2020 7:12:48 PM -- Debugging in Create Sittings Form to display tables and area
+    10/06/2020 7:12:48 PM -- There are 30 Tables
+    10/06/2020 7:12:48 PM -- There are 3 Areas
+        10/06/2020 7:12:53 PM -- Debugging in Create Sittings Form to display tables and area
+        10/06/2020 7:12:53 PM -- There are 30 Tables
+        10/06/2020 7:12:54 PM -- There are 3 Areas
+    10/06/2020 7:14:00 PM -- Debugging in Create Sittings Form to display tables and area
+    10/06/2020 7:14:00 PM -- There are 30 Tables
+    10/06/2020 7:14:00 PM -- There are 3 Areas
+    10/06/2020 8:51:17 PM -- Debugging in Create Sittings Form to display tables and area
+    10/06/2020 8:51:17 PM -- There are 30 Tables
+    10/06/2020 8:51:17 PM -- There are 3 Areas
+    10/06/2020 8:51:58 PM -- Debugging in Create Sittings Form to display tables and area
+    10/06/2020 8:51:58 PM -- There are 30 Tables
+    10/06/2020 8:51:58 PM -- There are 3 Areas
+    11/06/2020 9:27:36 PM -- Debugging in Create Sittings Form to display tables and area
+    11/06/2020 9:27:36 PM -- There are 30 Tables
+    11/06/2020 9:27:36 PM -- There are 3 Areas

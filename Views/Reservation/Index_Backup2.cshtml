@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewData["Title"] = "Reservation";
+
+    var date = DateTime.Now;
+}
+
+<h1>Reservation</h1>
+
+<!--
+<ul>
+    &at foreach (var item in ViewBag.Reservations)
+    {
+        <li>&atitem</li>
+    }
+</ul>
+    -->
+@if (User.IsInRole("Manager") || User.IsInRole("Staff"))
+{
+    <div>
+        <table class="table table-striped table-bordered" id="reservationTable">
+            <thead class="thead-dark">
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">First Name</th>
+                    <th scope="col">Last Name</th>
+                    <th scope="col">Number of Guests</th>
+                    <th scope="col">Time of Reservation</th>
+
+
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="reservationList">
+                    <td scope="row">1</td>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>2</td>
+                    <td>@date</td>
+
+                </tr>
+                <tr class="reservationList">
+                    <td scope="row">2</td>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>2</td>
+                    <td>@date</td>
+
+                </tr>
+                <tr class="reservationList">
+                    <td scope="row">3</td>
+                    <td>Larry</td>
+                    <td>Smith</td>
+                    <td>2</td>
+                    <td>@date</td>
+
+                </tr>
+            </tbody>
+        </table>
+
+
+        <button id="new-row-button" class="btn btn-dark" onclick="addNewRow()">Add New Reservation</button>
+
+
+        <button id="save-button" class="btn btn-dark" onclick="">Save Changes</button>
+
+    </div>
+
+
+}
+
+
+@section Scripts {
+
+    <script src="~/js/crud/bstable.js"></script>
+
+    <script>
+
+
+        function addNewRow() {
+            console.log("ASD");
+            if (document.getElementsByClassName("reservationList").length == 0) {
+                var table = document.getElementById("reservationTable").getElementsByTagName('tbody')[0];
+
+                editableTable.destroy();
+                table.innerHTML = '<tr class="reservationList"><td scope="row"></td><td></td><td></td></tr>';
+                editableTable.init();
+
+
+            }
+
+        }
+
+    </script>
+
+
+    <script>
+
+        var editableTable = new BSTable("reservationTable", {
+            $addButton: $('#new-row-button'), advanced: {
+                columnLabel: 'Actions',
+                buttonHTML: `<div class="btn-group pull-right">
+                            <button id="bEdit" type="button" class="">
+                              <span class="fa fa-edit" > </span>
+                            </button>
+                            <button id="bDel" type="button" class="">
+                              <span class="fa fa-trash" > </span>
+                            </button>
+                            <button id="bAcep" type="button" class="btn btn-sm btn-default" style="display:none;">
+                              <span class="fa fa-check-circle" > </span>
+                            </button>
+                            <button id="bCanc" type="button" class="btn btn-sm btn-default" style="display:none;">
+                              <span class="fa fa-times-circle" > </span>
+                            </button>
+                          </div>`
+            }
+        });
+
+        editableTable.init();
+
+
+    </script>
+
+}
+

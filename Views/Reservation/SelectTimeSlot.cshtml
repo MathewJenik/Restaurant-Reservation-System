@@ -1,0 +1,33 @@
+﻿@model T2RMSWS.Models.SittingTSDataModel
+
+@{
+    ViewData["Title"] = "SelectTimeSlot";
+}
+
+<h1>SelectTimeSlot</h1>
+
+<div>
+    <h4>Sitting</h4>
+    <hr />
+    <dl class="row">
+
+        
+        @for (int i = 0; i < Model.timeSlots.Count(); i++) {
+            if (Model.timeSlots[i][3] == 0) {
+                var totalTime = Model.timeSlots[i][0];
+                var hours = (int)totalTime/100;
+                var mins = (totalTime - (hours*100));
+                
+                
+                
+                var name = hours.ToString() + " : " + mins.ToString();
+                //@Html.DisplayNameFor(model => model.timeSlots[i][0]);
+                <p>@name</p><br />
+            }
+        }
+
+    </dl>
+</div>
+<div>
+    <a asp-action="AvailableSittings">Back</a>
+</div>
