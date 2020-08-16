@@ -849,7 +849,9 @@ namespace T2RMSWS.Controllers
 
 
            
-            return AvailableSittings(sittingListTSDataModel, 0);
+            //return AvailableSittings(sittingListTSDataModel, 0);
+            return RedirectToAction("AvailableSittings");
+
             //return View(sittingListTSDataModel);
             //return View("AvailableSittings", sittingListTSDataModel);
             //return await AvailableSittings();
@@ -871,7 +873,7 @@ namespace T2RMSWS.Controllers
             //return View(st);
             return View("AvailableSittings", s);
             //return Content()
-            //RedirectToAction("AvailableSittings",s);
+            //return RedirectToAction("AvailableSittings",s);
             //return View("AvailableSittings");
         }
 
@@ -879,6 +881,7 @@ namespace T2RMSWS.Controllers
 
             //not used i dont think, here as backupcode just in case
         //Had: [Bind("ReservationId,Guests,StartDateTime,EndDateTime")] Reservation reservation
+        /*
         public async Task<IActionResult> AvailableSittings()
         {
             //ViewBag["sittingStartDate"] = res.StartDateTime.Date;
@@ -944,7 +947,7 @@ namespace T2RMSWS.Controllers
             return View("AvailableSittings", sittingListTSDataModel);
             //return View("AvailableSittings", sittingList);            
         }
-
+        */
 
 
         //[Bind("ReservationId,Guests,StartDateTime,EndDateTime")] Reservation reservation

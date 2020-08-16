@@ -65,3 +65,9 @@
     11/06/2020 9:27:36 PM -- Debugging in Create Sittings Form to display tables and area
     11/06/2020 9:27:36 PM -- There are 30 Tables
     11/06/2020 9:27:36 PM -- There are 3 Areas
+    12/08/2020 8:11:04 PM -- Debugging in Create Sittings Form to display tables and area
+    12/08/2020 8:11:04 PM -- There are 2 Tables
+    12/08/2020 8:11:04 PM -- There are 3 Areas
+        12/08/2020 8:12:32 PM -- Debugging in Create Sittings Form to display tables and area
+        12/08/2020 8:12:32 PM -- There are 2 Tables
+        12/08/2020 8:12:32 PM -- There are 3 Areas

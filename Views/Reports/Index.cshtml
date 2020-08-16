@@ -11,281 +11,286 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
     <!-- CSS Files -->
+    <!--
     <link href="~/css/material-dashboard/material-dashboard.css" rel="stylesheet" />
-
+    <link href="~/css/material-dashboard/material-dashboard.css" rel="stylesheet" />
+    -->
+    <link href="~/css/material-dashboard/charts.css" rel="stylesheet" />
 }
 
 <div class="wrapper ">
 
-    <div class="main-panel">
-        <div class="content">
-            <div class="container-fluid">
-                <div class="row">
-                    <!--THIS IS THE TOP ROWS OF BOXES-->
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-header card-header-warning card-header-icon">
-                                <div class="card-icon">
-                                    <i class="material-icons">create</i>
-                                </div>
-                                <p class="card-category">Total Bookings</p>
-                                <h3 class="card-title">
-                                    @Model.TotalReservations
-                                </h3>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">date_range</i> Last 24 Hours
+    <!--<div class="main-panel">-->
+    <!-- <div class="content"> -->
+    <!--<div class="container-fluid">-->
+    <div class="row">
+        <!--THIS IS THE TOP ROWS OF BOXES-->
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">create</i>
+                    </div>
+                    <p class="card-category">Total Bookings</p>
+                    <h3 class="card-title">
+                        @Model.TotalReservations
+                    </h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">date_range</i> Last 24 Hours
 
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-header card-header-success card-header-icon">
-                                <div class="card-icon">
-                                    <i class="material-icons">restaurant_menu</i>
-                                </div>
-                                <p class="card-category">Seated</p>
-                                <h3 class="card-title">@Model.Seated</h3>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">date_range</i> Last 24 Hours
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-header card-header-info card-header-icon">
-                                <div class="card-icon">
-                                    <i class="material-icons">access_time</i>
-                                </div>
-                                <p class="card-category">Pending</p>
-                                <h3 class="card-title">@Model.Pending</h3>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">update</i> Just Updated
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-header card-header-danger card-header-icon">
-                                <div class="card-icon">
-                                    <i class="material-icons">clear</i>
-                                </div>
-                                <p class="card-category">Cancellations</p>
-                                <h3 class="card-title">@Model.Cancelled</h3>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">update</i> Just Updated
-                                </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
-                <div class="row">
-                    <!--THIS IS THE WHERE CHARTS BEGIN LOOK INTO materials-dashboard.js to change values-->
-                    <div class="col-md-4">
-                        <div class="card card-chart">
-                            <div class="card-header card-header-success">
-                                <div class="ct-chart" id="dailySalesChart">
-
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">Weekly Reservations</h4>
-                                <p class="card-category">
-                                    <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.
-                                </p>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">access_time</i> updated 4 minutes ago
-                                </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">restaurant_menu</i>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card card-chart">
-                            <div class="card-header card-header-warning">
-                                <div class="ct-chart" id="websiteViewsChart">
-
-
-                                </div>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">Monthly Reservations</h4>
-                                <p class="card-category">Last Campaign Performance</p>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">access_time</i> campaign sent 2 days ago
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card card-chart">
-                            <div class="card-header card-header-info">
-                                <div class="ct-chart" id="completedTasksChart"></div>
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">Weekly Capacity Reached</h4>
-                                <p class="card-category">Last Campaign Performance</p>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">access_time</i> campaign sent 2 days ago
-                                </div>
-                            </div>
-                        </div>
+                    <p class="card-category">Seated</p>
+                    <h3 class="card-title">@Model.Seated</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">date_range</i> Last 24 Hours
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card card-chart">
-                            <div class="card-header card-header-primary">
-                                <div class="ct-chart" id="TablesSeated"></div> <!-- change this so you can connect into material-dashboard as tables seated-->
-                            </div>
-                            <div class="card-body">
-                                <h4 class="card-title">Current Table Seated</h4>
-                                <p class="card-category">Last Campaign Performance</p>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">access_time</i> campaign sent 2 days ago
-                                </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">access_time</i>
+                    </div>
+                    <p class="card-category">Pending</p>
+                    <h3 class="card-title">@Model.Pending</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">update</i> Just Updated
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-header card-header-warning card-header-icon">
-                                <div class="card-icon">
-                                    <i class="material-icons">computer</i>
-                                </div>
-                                <p class="card-category" id="Online">Online</p>
-                                <h3 class="card-title">
-                                    @Model.Online
-                                </h3>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">update</i> Just Updated
-
-                                </div>
-                            </div>
-                        </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">clear</i>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-header card-header-success card-header-icon">
-                                <div class="card-icon">
-                                    <i class="material-icons">directions_walk</i>
-                                </div>
-                                <p class="card-category" id="InPerson">Walk-In</p>
-                                <h3 class="card-title">@Model.InPerson</h3>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">update</i> Just Updated
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-header card-header-info card-header-icon">
-                                <div class="card-icon">
-                                    <i class="material-icons">phone_enabled</i>
-                                </div>
-                                <p class="card-category">Phone</p>
-                                <h3 class="card-title" id="Phone">@Model.Phone</h3>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">update</i> Just Updated
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 col-md-6 col-sm-6">
-                        <div class="card card-stats">
-                            <div class="card-header card-header-danger card-header-icon">
-                                <div class="card-icon">
-                                    <i class="material-icons">mail_outline</i>
-                                </div>
-                                <p class="card-category">Email</p>
-                                <h3 class="card-title" id="Email">@Model.Email</h3>
-                            </div>
-                            <div class="card-footer">
-                                <div class="stats">
-                                    <i class="material-icons">update</i> Just Updated
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="card-category">Cancellations</p>
+                    <h3 class="card-title">@Model.Cancelled</h3>
                 </div>
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card">
-                            <div class="card-header card-header-warning">
-                                <h4 class="card-title">Employees</h4>
-                                <p class="card-category">Current Staff Employed</p>
-                            </div>
-                            <div class="card-body table-responsive">
-                                <table class="table table-hover">
-                                    <thead class="text-warning">
-                                    <th>ID</th>
-                                    <th>Name</th>
-                                    <th>Phone</th>
-                                    <th>Email</th>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>1</td>
-                                            <td>Dakota Rice</td>
-                                            <td>9372 3922</td>
-                                            <td>Dakota.Rice@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>2</td>
-                                            <td>Minerva Hooper</td>
-                                            <td>9351 3423</td>
-                                            <td>Minerva.Hooper@yahoo.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>3</td>
-                                            <td>Sage Rodriguez</td>
-                                            <td>9432 6766</td>
-                                            <td>S_Rodriguez@gmail.com</td>
-                                        </tr>
-                                        <tr>
-                                            <td>4</td>
-                                            <td>Philip Chaney</td>
-                                            <td>9654 3453</td>
-                                            <td>Philip.Chaney@apple.com</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">update</i> Just Updated
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
+    <div class="row">
+        <!--THIS IS THE WHERE CHARTS BEGIN LOOK INTO materials-dashboard.js to change values-->
+        <div class="col-md-4">
+            <div class="card card-chart">
+                <div class="card-header card-header-success">
+                    <div class="ct-chart" id="dailySalesChart">
 
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Weekly Reservations</h4>
+                    <p class="card-category">
+                        <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> increase in today sales.
+                    </p>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> updated 4 minutes ago
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-chart">
+                <div class="card-header card-header-warning">
+                    <div class="ct-chart" id="websiteViewsChart">
+
+
+                    </div>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Monthly Reservations</h4>
+                    <p class="card-category">Last Campaign Performance</p>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card card-chart">
+                <div class="card-header card-header-info">
+                    <div class="ct-chart" id="completedTasksChart"></div>
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Weekly Capacity Reached</h4>
+                    <p class="card-category">Last Campaign Performance</p>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card card-chart">
+                <div class="card-header card-header-primary">
+                    <div class="ct-chart" id="TablesSeated"></div> <!-- change this so you can connect into material-dashboard as tables seated-->
+                </div>
+                <div class="card-body">
+                    <h4 class="card-title">Current Table Seated</h4>
+                    <p class="card-category">Last Campaign Performance</p>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">access_time</i> campaign sent 2 days ago
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-warning card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">computer</i>
+                    </div>
+                    <p class="card-category" id="Online">Online</p>
+                    <h3 class="card-title">
+                        @Model.Online
+                    </h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">update</i> Just Updated
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-success card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">directions_walk</i>
+                    </div>
+                    <p class="card-category" id="InPerson">Walk-In</p>
+                    <h3 class="card-title">@Model.InPerson</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">update</i> Just Updated
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-info card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">phone_enabled</i>
+                    </div>
+                    <p class="card-category">Phone</p>
+                    <h3 class="card-title" id="Phone">@Model.Phone</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">update</i> Just Updated
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-6">
+            <div class="card card-stats">
+                <div class="card-header card-header-danger card-header-icon">
+                    <div class="card-icon">
+                        <i class="material-icons">mail_outline</i>
+                    </div>
+                    <p class="card-category">Email</p>
+                    <h3 class="card-title" id="Email">@Model.Email</h3>
+                </div>
+                <div class="card-footer">
+                    <div class="stats">
+                        <i class="material-icons">update</i> Just Updated
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-warning">
+                    <h4 class="card-title">Employees</h4>
+                    <p class="card-category">Current Staff Employed</p>
+                </div>
+                <div class="card-body table-responsive">
+                    <table class="table table-hover">
+                        <thead class="text-warning">
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Phone</th>
+                        <th>Email</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Dakota Rice</td>
+                                <td>9372 3922</td>
+                                <td>Dakota.Rice@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Minerva Hooper</td>
+                                <td>9351 3423</td>
+                                <td>Minerva.Hooper@yahoo.com</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Sage Rodriguez</td>
+                                <td>9432 6766</td>
+                                <td>S_Rodriguez@gmail.com</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Philip Chaney</td>
+                                <td>9654 3453</td>
+                                <td>Philip.Chaney@apple.com</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    -->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+</div>
+<!--
 <div class="dropdown show-dropdown">
     <a href="#" data-toggle="dropdown">
         <i class="fa fa-cog fa-2x"> </i>
@@ -334,25 +339,25 @@
                 <a href="https://www.creative-tim.com/product/material-dashboard-pro" target="_blank" class="btn btn-warning btn-block">
                   Get the pro version
                 </a>
-            </li> -->
-        <li class="button-container">
-            <a href="https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
-                View Documentation
-            </a>
-        </li>
-        <li class="button-container github-star">
-            <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
-        </li>
-        <li class="header-title">Thank you for 95 shares!</li>
-        <li class="button-container text-center">
-            <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
-            <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
-            <br>
-            <br>
-        </li>
+            </li>
+<li class="button-container">
+    <a href="https://demos.creative-tim.com/material-dashboard/docs/2.1/getting-started/introduction.html" target="_blank" class="btn btn-default btn-block">
+        View Documentation
+    </a>
+</li>
+<li class="button-container github-star">
+    <a class="github-button" href="https://github.com/creativetimofficial/material-dashboard" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star ntkme/github-buttons on GitHub">Star</a>
+</li>
+<li class="header-title">Thank you for 95 shares!</li>
+<li class="button-container text-center">
+    <button id="twitter" class="btn btn-round btn-twitter"><i class="fa fa-twitter"></i> &middot; 45</button>
+    <button id="facebook" class="btn btn-round btn-facebook"><i class="fa fa-facebook-f"></i> &middot; 50</button>
+    <br>
+    <br>
+</li>
     </ul>
 </div>
-
+-->
 
 @section Scripts {
     <!--   Core JS Files   -->

@@ -34,9 +34,11 @@ namespace T2RMSWS
             //services.AddControllers();
 
             //registers dbcontext as a service
-            services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(
-                    Configuration.GetConnectionString("DefaultConnection")));
+            //services.AddDbContext<ApplicationDbContext>(options =>
+            //    options.UseSqlServer(
+            //        Configuration.GetConnectionString("DefaultConnection")));
+            services.AddEntityFrameworkNpgsql().AddDbContext<ApplicationDbContext>(options =>
+                options.UseNpgsql(Configuration.GetConnectionString("DefaultConnection")));
 
             //this registers identity as service
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
