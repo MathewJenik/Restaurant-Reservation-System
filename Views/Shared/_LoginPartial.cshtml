@@ -12,6 +12,12 @@
         </button>
         <div class="navbar-collapse collapse d-md-inline-flex justify-content-between">
             <ul class="nav navbar-nav">
+
+                <li class="nav-item">
+                    <a class="nav-item text-dark" asp--area="" asp-controller="Menu" asp-action="Index">Menu</a>
+
+                </li>
+
                 @if (User.IsInRole("Manager"))
                 {
                     <li class="nav-item">
